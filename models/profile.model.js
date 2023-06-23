@@ -4,39 +4,35 @@ const profileSchema = mongoose.Schema(
   {
     doctorId: {
       type: String,
-      required: true,
+      required: true
     },
     image: {
-      type: String,
-      required: true,
+      type: String
     },
     doctorName: {
       type: String,
-      required: true,
+      required: true
     },
     qualifications: {
       type: String,
-      required: true,
+      required: true
     },
     speciality: {
       type: String,
-      required: true,
+      required: true
     },
     experience: {
-      type: String,
-      required: true,
+      type: String
     },
     setfees: {
-      type: String,
-      required: true,
+      type: String
     },
     city: {
-      type: String,
-      required: true,
+      type: String
     },
     isAvailable: {
       type: Boolean,
-      default: true,
+      default: true
     },
   },
   {
