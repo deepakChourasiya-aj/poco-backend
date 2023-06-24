@@ -75,7 +75,7 @@ const bookAppointment = async (req, res) => {
 
       if (updatedSlot && bookApp) {
         return res.send({
-          msg: "Appointment detailed  submitted successfully make a payment",
+          msg: "Appointment booked successfully",
           bookApp: bookApp,
         });
       }
