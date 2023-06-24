@@ -7,6 +7,11 @@ const bookAppointment = async (req, res) => {
   try {
     const doctorId = req.params.doctorId;
     const slotId = req.params.slotId;
+    if (!slotId && !doctorId) {
+      return res.send({
+        msg: "Please select available slot by clicking on slot timing",
+      });
+    }
     let patientId = req.body.userID;
     const {
       appointmentType,
@@ -122,23 +127,22 @@ const cancelAppointment = async (req, res) => {
     res.send({ msg: "Server error in appointment booking" });
   }
 };
-const checkAppointment = async(req,res)=>{
+const checkAppointment = async (req, res) => {
   try {
-    if(req.body.role=='doctor'){
-      const check = await AppointmentModel.find({doctorId:req.body.userID});
-    return  res.send({msg:"success",data:check})
+    if (req.body.role == "doctor") {
+      const check = await AppointmentModel.find({ doctorId: req.body.userID });
+      return res.send({ msg: "success", data: check });
     }
-    if(req.body.role=='patient'){
-      const check = await AppointmentModel.find({patientId:req.body.userID})
-     return res.send({msg:"success",data:check})
+    if (req.body.role == "patient") {
+      const check = await AppointmentModel.find({ patientId: req.body.userID });
+      return res.send({ msg: "success", data: check });
     }
-    
   } catch (error) {
-    res.send({msg:"Server error"})
+    res.send({ msg: "Server error" });
   }
-}
+};
 module.exports = {
   bookAppointment,
   cancelAppointment,
-  checkAppointment
+  checkAppointment,
 };
