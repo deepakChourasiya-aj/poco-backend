@@ -7,6 +7,10 @@ const userRoute = express.Router();
 userRoute.post("/register", async (req, res) => {
   const { firstName, lastName, email, mobile, password, role } = req.body;
   try {
+    let check = await User.findOne({email: email});
+    if(check){
+      return res.send({message:"Already registered"})
+    }
     // Input validation - check that name, email, and password are present in the request body
     if (!firstName || !lastName || !email || !mobile || !password) {
       return res.status(400).json({

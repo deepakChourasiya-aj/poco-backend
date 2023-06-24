@@ -16,7 +16,7 @@ const openSlots = async (req, res) => {
         availableSlots: [
           {
             startTime: startTime,
-            endTime: endTime,
+            endTime: endTime
           },
         ],
       });
