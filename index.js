@@ -14,7 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
-
+// Changes added successfully . 
 app.use("/api", userRoute);
 app.use("/api", accessRoute);
 app.use(authenticator);
